@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CloudFormation::VERSION
   spec.authors       = ["David White"]
   spec.email         = ["david.white@spry-soft.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A Ruby gem to create AWS CloudFormation descriptions.}
+  spec.description   = spec.summary
   spec.homepage      = ""
   spec.license       = "MIT"
 
