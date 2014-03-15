@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["david.white@spry-soft.com"]
   spec.summary       = %q{A Ruby gem to create AWS CloudFormation descriptions.}
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/davidrhyswhite/cloud_formation"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
