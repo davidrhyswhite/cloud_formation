@@ -15,6 +15,10 @@ module CloudFormation
       @resources[resource.name] = resource.serialize.tap { |a| a.delete("Name") }
     end
 
+    def add_resources resources
+      resources.each { |resource| add_resource resource }
+    end
+
     def render pretty: false, indentation: 2
       pretty ? JSON.pretty_generate(serialize, indent: " "*indentation) : serialize.to_json
     end
