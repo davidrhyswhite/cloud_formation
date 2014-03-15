@@ -77,16 +77,16 @@ Running with the `pretty true` options will generate an easier to read version:
         "ProvisionedThroughput": {
           "WriteCapacityUnits": "5",
           "ReadCapacityUnits": "10"
-        }
-      },
-      "KeySchema": {
-        "RangeKeyElement": {
-          "AttributeName": "comment_id",
-          "AttributeType": "N"
         },
-        "HashKeyElement": {
-          "AttributeName": "blog_post_id",
-          "AttributeType": "N"
+        "KeySchema": {
+          "RangeKeyElement": {
+            "AttributeName": "comment_id",
+            "AttributeType": "N"
+          },
+          "HashKeyElement": {
+            "AttributeName": "blog_post_id",
+            "AttributeType": "N"
+          }
         }
       }
     }

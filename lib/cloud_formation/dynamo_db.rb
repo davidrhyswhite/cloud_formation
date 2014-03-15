@@ -17,7 +17,8 @@ module CloudFormation
           }
         }
       }
-      properties.merge add_key_schemas
+      properties["Properties"].merge! add_key_schemas
+      properties
     end
 
 
