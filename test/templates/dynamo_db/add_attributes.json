@@ -1,0 +1,33 @@
+{
+  "Type": "AWS::DynamoDB::Table",
+  "Properties": {
+    "ProvisionedThroughput": {
+      "WriteCapacityUnits": "5",
+      "ReadCapacityUnits": "10"
+    },
+    "KeySchema": {
+      "RangeKeyElement": {
+        "AttributeName": "column_two_id",
+        "AttributeType": "N"
+      },
+      "HashKeyElement": {
+        "AttributeName": "column_one_id",
+        "AttributeType": "N"
+      }
+    },
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "first_name",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "last_name",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "age",
+        "AttributeType": "N"
+      }
+    ]
+  }
+}

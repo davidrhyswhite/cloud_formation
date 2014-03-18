@@ -19,6 +19,12 @@ module CloudFormation
       class Table < Base
         attribute_list :name, :read_capacity_units, :write_capacity_units, :hash_key, :range_key
 
+        attr_accessor :attribute_definitions
+
+        def initialize
+          @attribute_definitions = []
+        end
+
         def serialize
           properties = {
             "Type" => "AWS::DynamoDB::Table",
@@ -30,12 +36,17 @@ module CloudFormation
             }
           }
           properties["Properties"].merge! add_key_schemas
+          properties["Properties"]["AttributeDefinitions"] = @attribute_definitions unless @attribute_definitions.empty?
           properties
+        end
+
+        def add_attribute attr_name, attr_value
+          @attribute_definitions << { "AttributeName" => attr_name.to_s, "AttributeType" => type_mapping(attr_value) }
         end
 
         private
 
-          def key_type_mapping type
+          def type_mapping type
             case type
               when :string then "S"
               when :number then "N"
@@ -52,7 +63,7 @@ module CloudFormation
 
           def add_key_schema_for key
             k = key.keys.first
-            { "AttributeName" => k.to_s, "AttributeType" => key_type_mapping(key[k])  }
+            { "AttributeName" => k.to_s, "AttributeType" => type_mapping(key[k])  }
           end
 
       end
